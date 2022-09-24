@@ -10,7 +10,7 @@ $res_row_fer = mysqli_query($con,"SELECT * FROM users WHERE publicid='$r'") or d
 if(mysqli_num_rows($res_row_fer) > 0 ){
 														$row = mysqli_fetch_array($res_row_fer);
 
-													$avatar = $row['avatar'];  
+													$avatar_guest = $row['avatar'];  
 													$username = $row['username'];  
 }
 else{
@@ -30,7 +30,7 @@ else{
 						<div class="card-header msg_head">
 							<div class="d-flex bd-highlight">
 								<div class="img_cont">
-									<img src="img/<?php echo $avatar;?>" class="rounded-circle user_img">
+									<img src="img/<?php echo $avatar_guest;?>" class="rounded-circle user_img">
 									<span class="online_icon"></span>
 								</div>
 								<div class="user_info">
@@ -130,12 +130,12 @@ for (;myArr[i];) {
 	var mySelf = '<?php echo $publicid;?>';
 	if(senderMes === mySelf){
 		
-				text += '<div class="d-flex justify-content-end mb-4"><div class="msg_cotainer_send">' + myArr[i]["mes"] + '</div><div class="img_cont_msg">	<img class="rounded-circle user_img_msg" src="img/user1.jpg"></div>		</div>';
+				text += '<div class="d-flex justify-content-end mb-4"><div class="msg_cotainer_send">' + myArr[i]["mes"] + '</div><div class="img_cont_msg">	<img class="rounded-circle user_img_msg" src="img/<?php echo $avatar;?>"></div>		</div>';
 
 	}
 	
 	else{
-			text += '<div class="d-flex justify-content-start mb-4"><div class="img_cont_msg"><img src="img/user1.jpg" class="rounded-circle user_img_msg"></div><div class="msg_cotainer">' + myArr[i]["mes"] + '<span class="msg_time">9:12 AM, Today</span></div></div>';
+			text += '<div class="d-flex justify-content-start mb-4"><div class="img_cont_msg"><img src="img/<?php echo $avatar_guest;?>" class="rounded-circle user_img_msg"></div><div class="msg_cotainer">' + myArr[i]["mes"] + '<span class="msg_time">9:12 AM, Today</span></div></div>';
 
 
 	}
@@ -152,8 +152,8 @@ document.getElementById("chatBox").innerHTML = text;
 	
 	
 $(document).ready(function() {
-//aliText();
- setInterval( aliText,3000);
+ aliText();
+ setInterval( aliText,2000);
 });
 
 
@@ -185,6 +185,10 @@ $(document).ready (function(){
             });
         });
 	</script>
+	
+	<style>
+	
+	</style>
 </html>
 
 
