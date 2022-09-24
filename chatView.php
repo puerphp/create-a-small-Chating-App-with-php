@@ -94,6 +94,8 @@ else{
 	
 	<div id="ew"></div>
 	<script>
+	
+	/*
 		$(document).ready(function(){
 $('#action_menu_btn').click(function(){
 	$('.action_menu').toggle();
@@ -101,7 +103,7 @@ $('#action_menu_btn').click(function(){
 	});
 	
 	
-	
+	*/
 	
 	/////////////////////////
 	
