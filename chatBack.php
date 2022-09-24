@@ -1,6 +1,7 @@
 <?php  
 include("config.php");
 include("session.php");
+include("converter.php");
 
 if(isset($_REQUEST['s'],$_REQUEST['r']) && !empty($_REQUEST['r']) && !empty($_REQUEST['s']) && $_REQUEST['s'] == $publicid ):
 
@@ -15,8 +16,9 @@ $res_friends = mysqli_query($con,"SELECT * FROM mes WHERE sender = '$guest' AND 
 											while ($translist = mysqli_fetch_assoc($res_friends)) {
 											 extract($translist);
 											 
-											 
-											 $test = ['mes' => $textmes, 'sender' =>$sender];
+											 $timeMes = gregorian_to_jalali(date("Y", $tdate), date("n", $tdate), date("j", $tdate), '/').'   - '.date("G:i",$tdate);
+									
+											 $test = ['mes' => $textmes, 'sender' =>$sender , 'timeMes' => $timeMes];
 											 array_push($a,$test);
 											 array_push($b,$sender);
 											
