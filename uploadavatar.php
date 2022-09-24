@@ -45,8 +45,9 @@ if(!empty($_FILES['file'])){
 
 if($useravatarbefore != 'avatar.png'){
               $namebeforeavatar= "img/".$useravatarbefore;
+  			if($useravatarbefore != '0.png'){
               unlink($namebeforeavatar);
-              
+            }
           }
 		  mysqli_query($con,"UPDATE users SET avatar='$name' WHERE privetid='$user' ") or die(mysqli_error($con));
          
