@@ -132,12 +132,12 @@ for (;myArr[i];) {
 	var mySelf = '<?php echo $publicid;?>';
 	if(senderMes === mySelf){
 		
-				text += '<div class="d-flex justify-content-end mb-4"><div class="msg_cotainer_send">' + myArr[i]["mes"] + '</div><div class="img_cont_msg">	<img class="rounded-circle user_img_msg" src="img/<?php echo $avatar;?>"></div>		</div>';
+				text += '<div class="d-flex justify-content-end mb-2"><div class="msg_cotainer_send">' + myArr[i]["mes"] + '<span class="msg_time_send1">'+ myArr[i]["timeMes"] +'</span></div><div class="img_cont_msg"><img class="rounded-circle user_img_msg" src="img/<?php echo $avatar;?>"></div></div>';
 
 	}
 	
 	else{
-			text += '<div class="d-flex justify-content-start mb-4"><div class="img_cont_msg"><img src="img/<?php echo $avatar_guest;?>" class="rounded-circle user_img_msg"></div><div class="msg_cotainer">' + myArr[i]["mes"] + '<span class="msg_time">9:12 AM, Today</span></div></div>';
+			text += '<div class="d-flex justify-content-start mb-2"><div class="img_cont_msg"><img src="img/<?php echo $avatar_guest;?>" class="rounded-circle user_img_msg"></div><div class="msg_cotainer">' + myArr[i]["mes"] + '<span class="msg_time">'+ myArr[i]["timeMes"] +'</span></div></div>';
 
 
 	}
@@ -189,6 +189,18 @@ $(document).ready (function(){
 	</script>
 	
 	<style>
+	.msg_time_send1{
+		position: absolute;
+		right:0;
+		
+		bottom: -15px;
+		color: rgba(255,255,255,0.5);
+		font-size: 10px;
+		width: 100px;
+	
+		text-align:right;
+	}
+	
 	
 	</style>
 </html>
